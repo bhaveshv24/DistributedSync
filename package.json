@@ -1,0 +1,21 @@
+{
+  "name": "distributedsync",
+  "version": "1.0.0",
+  "description": "A learning project about distributed systems and how servers stay synchronized",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/cluster.js",
+    "node1": "node src/server.js --id node1 --port 3001 --peers node2:3002 node3:3003",
+    "node2": "node src/server.js --id node2 --port 3002 --peers node1:3001 node3:3003",
+    "node3": "node src/server.js --id node3 --port 3003 --peers node1:3001 node2:3002"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "body-parser": "^1.20.2"
+  },
+  "keywords": ["raft", "distributed-systems", "consensus", "learning"],
+  "author": "",
+  "license": "MIT"
+}
